@@ -1,0 +1,39 @@
+<md-dialog aria-label="Settings">
+    <form ng-cloak>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Quiz history</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="close()">
+                    <md-icon mb-font-set="md">close</md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <md-list class="md-dense" flex>
+                    <md-subheader class="md-no-sticky">Попытки прохождения</md-subheader>
+                    <md-list-item class="md-3-line" ng-repeat="element in history">
+                        <md-icon mb-font-set="md">history</md-icon>
+                        <div class="md-list-item-text" layout="column">
+                            <h3>Дата прохождения: [[ element.date | prettyDate ]]</h3>
+                            <p>Правильных ответов: [[ element.correct ]]</p>
+                            <p>Неправильных ответов: [[ element.incorrect ]]</p>
+                            <p>Процент правильных ответов: [[ element.correct / (element.incorrect + element.correct) * 100 | number : 0 ]]%</p>
+                        </div>
+                        <md-button class="md-secondary md-icon-button" ng-click="removeHistory($index)" aria-label="call">
+                            <md-icon mb-font-set="md">clear</md-icon>
+                        </md-button>
+                    </md-list-item>
+                </md-list>
+            </div>
+        </md-dialog-content>
+
+        <md-dialog-actions layout="row">
+            <md-button ng-click="close()">
+                Close
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

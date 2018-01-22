@@ -1,0 +1,6 @@
+.env
+.idea
+.sonarlint
+.vscode
+/assets/.gitignore
+/assets/README.md

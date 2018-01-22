@@ -1,0 +1,8 @@
+exclude:
+  - .editorconfig
+  - .env.dist
+  - .gitignore
+  - CHANGELOG.md
+  - docker-compose.yaml
+  - LICENSE
+  - README.md

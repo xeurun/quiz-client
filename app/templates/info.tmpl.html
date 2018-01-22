@@ -1,0 +1,38 @@
+<md-dialog aria-label="Information">
+    <form ng-cloak>
+        <md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Quiz information</h2>
+                <span flex></span>
+                <md-button class="md-icon-button" ng-click="close()">
+                    <md-icon mb-font-set="md">close</md-icon>
+                </md-button>
+            </div>
+        </md-toolbar>
+
+        <md-dialog-content>
+            <div class="md-dialog-content">
+                <h2>App version</h2>
+                <p>[[ appVersion ]]</p>
+                <h2>Quiz name</h2>
+                <p>[[ quiz.getHeader("name") ]]</p>
+                <h2>Need point</h2>
+                <p>[[ quiz.getHeader("Passing Score") ]]</p>
+                <h2>Standart time limit</h2>
+                <p>[[ quiz.getHeader("Time Limit") ]]</p>
+                <h2>Question count</h2>
+                <p>[[ quiz.getQuestions().length ]]</p>
+                <h2>Question file version</h2>
+                <p>[[ quiz.getHeader("File Version") ]]</p>
+                <h2>Describe</h2>
+                <p>[[ quiz.getHeader("describe") ]]</p>
+            </div>
+        </md-dialog-content>
+
+        <md-dialog-actions layout="row">
+            <md-button ng-click="close()">
+                Close
+            </md-button>
+        </md-dialog-actions>
+    </form>
+</md-dialog>

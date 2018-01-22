@@ -1,0 +1,16 @@
+ARG VERSION
+ARG HTTP_PORT
+
+FROM node:${VERSION} as node
+
+ENV PW=app
+WORKDIR /${PW}
+
+RUN apk update \
+    && apk upgrade \
+    && apk add --no-cache make
+
+RUN npm install -g npm
+RUN npm install -g http-server
+
+EXPOSE ${HTTP_PORT}

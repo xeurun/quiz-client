@@ -1,0 +1,199 @@
+{
+  "header": {
+    "name": "Custom questions",
+    "Number": "710-710",
+    "Passing Score": "?",
+    "Time Limit": "30 min",
+    "File Version": "0.0.7",
+    "describe": "string '\n' must be output as new line"
+  },
+  "questions": [
+    {
+      "id": 1,
+      "text": "What is the output of the following code?\n\n$b = 2/0;",
+      "answers": [],
+      "variants": [
+        {
+          "id": "A",
+          "text": "DivisionByZeroError",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "AriphmeticError",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "Warning",
+          "isCorrect": true
+        },
+        {
+          "id": "D",
+          "text": "InvalidOperationException",
+          "isCorrect": false
+        }
+      ],
+      "hint": "warning + exception"
+    },
+    {
+      "id": 2,
+      "text": "What is the output of the following code?\n\nintdiv(1, 0);",
+      "answers": [],
+      "variants": [
+        {
+          "id": "A",
+          "text": "DivisionByZeroError",
+          "isCorrect": true
+        },
+        {
+          "id": "D",
+          "text": "InvalidOperationException",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "Warning",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "AriphmeticError",
+          "isCorrect": false
+        }
+      ],
+      "hint": "exception"
+    },
+    {
+      "id": 3,
+      "text": "Re-initialize previously executed the statement for execution?",
+      "answers": [],
+      "variants": [
+        {
+          "id": "A",
+          "text": "PDOStatement::reset()",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "PDOStatement::close()",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "PDOStatement::closeCursor()",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "None of the above",
+          "isCorrect": false
+        }
+      ],
+      "hint": "todo"
+    },
+    {
+      "id": 4,
+      "text": "What is the output of the following code?\n\n[1,2,3] + [4,5,6,7]",
+      "answers": [],
+      "variants": [
+        {
+          "id": "A",
+          "text": "1,2,3,7",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "1,2,3,4,5,6,7",
+          "isCorrect": false
+        }
+      ],
+      "hint": "todo"
+    },
+    {
+      "id": 5,
+      "text": "What is the output of the following code?\n\narray_merge([\"one\",\"two\"], [\"three\"])",
+      "answers": [],
+      "variants": [
+
+        {
+          "id": "A",
+          "text": "\"one\",\"two\",\"three\"",
+          "isCorrect": true
+        },
+        {
+          "id": "B",
+          "text": "\"three\",\"two\"",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "Exception",
+          "isCorrect": false
+        }
+      ],
+      "hint": "todo"
+    },
+    {
+      "id": 6,
+      "text": "What will output var_dump(078)?",
+      "answers": [],
+      "variants": [
+        {
+          "id": "A",
+          "text": "78",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "64",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "Exception",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "120",
+          "isCorrect": false
+        },
+        {
+          "id": "E",
+          "text": "ParseError",
+          "isCorrect": true
+        }
+      ],
+      "hint": "Invalid numeric literal"
+    },
+    {
+      "id": 7,
+      "text": "What is the output of the following code?\n\ndeclare(strict_type=1);\nfunction test(int $a) \n{\n    return $a;\n}\ntest(20);",
+      "answers": [],
+      "variants": [
+        {
+          "id": "A",
+          "text": "Error",
+          "isCorrect": false
+        },
+        {
+          "id": "B",
+          "text": "Exception",
+          "isCorrect": false
+        },
+        {
+          "id": "C",
+          "text": "20",
+          "isCorrect": false
+        },
+        {
+          "id": "D",
+          "text": "Warning",
+          "isCorrect": true
+        }
+      ],
+      "hint": "Warning:  Unsupported declare 'strict_type'"
+    }
+  ]
+}
