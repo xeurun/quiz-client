@@ -1,16 +1,20 @@
 ARG VERSION
-ARG HTTP_PORT
+ARG NODE_PORT
 
 FROM node:${VERSION} as node
 
-ENV PW=app
-WORKDIR /${PW}
+ENV PW=/app
+WORKDIR $PW
+
+ENV TZ=Europe/Moscow
+RUN ln -snf /usr/share/zoneinfo/${TZ} /etc/localtime && echo ${TZ} > /etc/timezone
 
 RUN apk update \
     && apk upgrade \
-    && apk add --no-cache make
+    && apk add --no-cache make git
 
-RUN npm install -g npm
-RUN npm install -g http-server
+RUN npm install -g -f npm fsevents
 
-EXPOSE ${HTTP_PORT}
+EXPOSE ${NODE_PORT}
+
+CMD ["npm", "run", "dev"]

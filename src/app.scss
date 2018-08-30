@@ -1,3 +1,9 @@
+@import url("//fonts.googleapis.com/icon?family=Material+Icons");
+@import "~angular-material/angular-material.min.css";
+@import "~intro.js/minified/introjs.min.css";
+@import "~highlight.js/styles/github.css";
+
+
 md-progress-circular {
     position: absolute;
     left: 0;
@@ -42,8 +48,6 @@ md-input-container.md-input-valid .md-input {
     border-color: #4CAF50 !important;
 }
 
-.variant-default {
-}
 .text-green,
 .variant-green .md-label {
     color: #4CAF50 !important;
@@ -70,11 +74,6 @@ md-checkbox.dotted .md-icon {
 }
 .toolbardemoBasicUsage md-toolbar md-icon.md-default-theme {
     color: white;
-}
-
-.icondemoFontIconsWithClassnames {
-    /* Bootstrap Overrides */
-    /* OLD STYLES */
 }
 
 .icondemoFontIconsWithClassnames .appDemoFontIconsWithClassnames {

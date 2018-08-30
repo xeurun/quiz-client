@@ -11,14 +11,14 @@ services:
       context: .docker
       dockerfile: Dockerfile-node
       args:
-        VERSION: 10-alpine
-        HTTP_PORT: ${HTTP_PORT}
+        VERSION: 8-alpine
+        NODE_PORT: ${NODE_PORT}
     environment:
-      PW: app
-    entrypoint: ["http-server", "-p", $HTTP_PORT]
+      TZ: Europe/Moscow
+      PW: /app
     networks:
       - public
     ports:
-      - ${HTTP_PORT}:${HTTP_PORT}
+      - ${NODE_PORT}:${NODE_PORT}
     volumes:
       - .:/app

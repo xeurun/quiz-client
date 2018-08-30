@@ -1,0 +1,49 @@
+{
+  "name": "quiz-client",
+  "version": "1.0.0",
+  "description": "* perform end date\r  * perform end questions",
+  "main": "index.js",
+  "dependencies": {
+    "angular": "^1.7.3",
+    "angular-animate": "^1.7.3",
+    "angular-aria": "^1.7.3",
+    "angular-cookies": "^1.7.3",
+    "angular-highlightjs": "^0.7.1",
+    "angular-intro.js": "^3.4.0",
+    "angular-local-storage": "^0.7.1",
+    "angular-material": "^1.1.10",
+    "angular-messages": "^1.7.3",
+    "angular-sanitize": "^1.7.3",
+    "highlightjs": "^9.10.0"
+  },
+  "devDependencies": {
+    "css-loader": "^1.0.0",
+    "extract-text-webpack-plugin": "^4.0.0-beta.0",
+    "file-loader": "^2.0.0",
+    "html-loader": "^0.5.5",
+    "html-webpack-plugin": "^3.2.0",
+    "node-sass": "^4.9.3",
+    "raw-loader": "^0.5.1",
+    "sass-loader": "^7.1.0",
+    "style-loader": "^0.23.0",
+    "webpack": "^4.17.1",
+    "webpack-cli": "^3.1.0",
+    "webpack-dev-server": "^3.1.7"
+  },
+  "scripts": {
+    "dev": "npm install && webpack --watch --progress --mode development",
+    "prod": "npm install && webpack --mode production",
+    "start": "webpack-dev-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xeurun/quiz-client.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xeurun/quiz-client/issues"
+  },
+  "homepage": "https://github.com/xeurun/quiz-client#readme"
+}

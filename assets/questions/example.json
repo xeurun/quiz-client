@@ -115,7 +115,6 @@
       "text": "What is the output of the following code?\n\narray_merge([\"one\",\"two\"], [\"three\"])",
       "answers": [],
       "variants": [
-
         {
           "id": "A",
           "text": "\"one\",\"two\",\"three\"",

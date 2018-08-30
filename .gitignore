@@ -2,5 +2,6 @@
 .idea
 .sonarlint
 .vscode
+node_modules
 /assets/.gitignore
 /assets/README.md
