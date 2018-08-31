@@ -21,6 +21,10 @@ class QuizFactory {
           DEBUGMODE: config.DEBUGMODE || false
         };
 
+        if (self.config.QUIZ === null && self.config.QUIZCUSTOM === null) {
+          self.setConfig("QUIZ", "example.json");
+        }
+
         // migration
         if (self.config.APP_VERSION != APP_VERSION) {
           if (self.config.APP_VERSION < "1.0.0") {
