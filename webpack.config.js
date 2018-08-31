@@ -4,6 +4,7 @@
  */
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 const path = require('path');
 
@@ -46,7 +47,11 @@ module.exports = {
           template: path.resolve(__dirname, 'src/app.html'),
           inject: false
       }),
-      new ExtractTextPlugin("main.css")
+      new ExtractTextPlugin("main.css"),
+      new CopyWebpackPlugin([
+        {from: 'node_modules/intro.js/minified/intro.min.js', to: path.resolve(__dirname, 'assets')},
+		    {from: 'node_modules/angular-intro.js/build/angular-intro.min.js', to: path.resolve(__dirname, 'assets')}
+      ])
   ],
   devServer: {
     host: "0.0.0.0",
