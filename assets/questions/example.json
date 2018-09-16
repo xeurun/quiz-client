@@ -1,10 +1,10 @@
 {
   "header": {
     "name": "Custom questions",
-    "Number": "710-710",
-    "Passing Score": "?",
-    "Time Limit": "30 min",
-    "File Version": "0.0.7",
+    "Number": "1-7",
+    "Passing Score": "10",
+    "Time Limit": "5 min",
+    "File Version": "0.1.0",
     "describe": "string '\n' must be output as new line"
   },
   "questions": [

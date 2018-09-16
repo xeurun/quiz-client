@@ -2,7 +2,7 @@
 
 class QuizController {
   /*@ngInject*/
-  constructor($rootScope, $scope, $http, $interval, $sce, $mdDialog, $mdToast, localStorageService, QuizFactory) {
+  constructor($rootScope, $scope, $http, $interval, $sce, $mdDialog, $mdToast, localStorageService, QuizFactory, hotkeys) {
     var self = this,
       interval,
       timeLeft,
@@ -35,6 +35,30 @@ class QuizController {
     this.correctCount = 0;
     this.end = false;
     this.disabled = {};
+
+    hotkeys
+    .bindTo($scope)
+    .add({
+      combo: 'enter',
+      callback: function($event) {
+        self.submit();
+        $event.preventDefault();
+      }
+    })
+    .add({
+      combo: 'left',
+      callback: function($event) {
+        self.before($event);
+        $event.preventDefault();
+      }
+    })
+    .add({
+      combo: 'right',
+      callback: function($event) {
+        self.next($event);
+        $event.preventDefault();
+      }
+    });
 
     this.exists = function (item, list) {
       return list.indexOf(item) > -1 ||
@@ -121,7 +145,7 @@ class QuizController {
         }
         this.set.pos++;
         this.answers = [];
-      } else {
+      } else if (!this.end && confirm("Завершить тест?")) {
         var history = localStorageService.get("history") || [];
         history.push({
           "correct": this.correctCount,
