@@ -9,10 +9,11 @@ require('angular-cookies');
 require('angular-material');
 require('angular-local-storage');
 require('angular-highlightjs');
+require('angular-hotkeys');
 
 angular
-.module('quiz-client', ['ngMaterial', 'ngSanitize', 'ngCookies', 'angular-intro', 'hljs', 'LocalStorageModule'])
-.config(function ($mdIconProvider, $interpolateProvider, $sceDelegateProvider, $httpProvider, localStorageServiceProvider) {
+.module('quiz-client', ['ngMaterial', 'ngSanitize', 'ngCookies', 'angular-intro', 'hljs', 'LocalStorageModule', 'cfp.hotkeys'])
+.config(function ($mdIconProvider, $interpolateProvider, $sceDelegateProvider, $httpProvider, localStorageServiceProvider, hotkeysProvider) {
     $interpolateProvider.startSymbol('[[ ').endSymbol(' ]]');
     $httpProvider.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded;charset=utf-8';
     $httpProvider.defaults.headers.common["X-Requested-With"] = 'XMLHttpRequest';
@@ -21,14 +22,14 @@ angular
       'self',
       'https://docs.google.com/**'
     ]);
+    hotkeysProvider.useNgRoute = false;
     localStorageServiceProvider
         .setPrefix('quiz-client')
         .setStorageType('localStorage')
-        .setNotify(false, false)
+        .setNotify(false, false);
 })
-.value("APP_VERSION", "1.0.2")
+.value("APP_VERSION", "1.0.5")
 .run(function (QuizFactory) {
-
     QuizFactory.init();
 })
 .filter('orderObjectBy', function () {
