@@ -7,10 +7,26 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ## [Unreleased]
 
-## [1.0.0] - 2018-01-31
 ### Added - for new features.
+
 ### Changed - for changes in existing functionality.
+
 ### Fixed - for any bug fixes.
+
 ### Deprecated - for soon-to-be removed features.
+
 ### Removed -  for now removed features.
+
 ### Security - in case of vulnerabilities.
+
+## [1.0.5] - 2018-09-16
+
+### Added
+
+* Favicons
+* Keyboard controlling
+* Ending test confirm dialog
+
+## [1.0.0] - 2018-01-31
+
+* First release

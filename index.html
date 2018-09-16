@@ -84,7 +84,7 @@
                                 <div class="demo-select-all-checkboxes" flex="100"
                                      ng-repeat="variant in qc.set.current.variants">
                                     <md-checkbox
-                                            ng-keypress=="false"
+                                            ng-keypress="false"
                                             ng-disabled="qc.disabled[qc.set.current.id] || qc.end"
                                             ng-class="qc.showAnswers ? (variant.isCorrect ? 'variant-green' : 'variant-red') : 'variant-default'"
                                             ng-checked="qc.exists(variant, qc.answers)"
