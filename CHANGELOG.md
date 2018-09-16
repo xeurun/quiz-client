@@ -19,11 +19,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Security - in case of vulnerabilities.
 
+## [1.0.6] - 2019-02-27
+
+## Fixed
+* Intro block positions
+
 ## [1.0.5] - 2018-09-16
 
 ### Added
 
-* Favicons
+* Favicon
 * Keyboard controlling
 * Ending test confirm dialog
 

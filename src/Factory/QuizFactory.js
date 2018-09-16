@@ -27,7 +27,7 @@ class QuizFactory {
 
         if (self.config.APP_VERSION !== APP_VERSION) {
           alert("New version, see changelog!");
-          window.open('CHANGELOG.md','_blank');
+          window.open('CHANGELOG.md', '_blank');
           self.setConfig("APP_VERSION", APP_VERSION);
         }
 

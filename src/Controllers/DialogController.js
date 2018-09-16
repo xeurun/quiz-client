@@ -32,38 +32,38 @@ class DialogController {
 
     $scope.save = function () {
       let reload = false;
-      if ($scope.selectedItem && QuizFactory.getConfig("QUIZ") != $scope.selectedItem.file) {
+      if ($scope.selectedItem && QuizFactory.getConfig("QUIZ") !== $scope.selectedItem.file) {
         QuizFactory.setConfig("QUIZ", $scope.selectedItem.file);
         reload = true;
       } else {
         QuizFactory.setConfig("QUIZ", null);
       }
-      if (QuizFactory.getConfig("QUIZCUSTOM") != $scope.customUrl) {
+      if (QuizFactory.getConfig("QUIZCUSTOM") !== $scope.customUrl) {
         QuizFactory.setConfig("QUIZCUSTOM", $scope.customUrl);
         reload = true;
       }
       if (reload) {
         $window.location.reload();
       }
-      if (QuizFactory.getConfig("SETLIMIT") != $scope.setLimit) {
+      if (QuizFactory.getConfig("SETLIMIT") !== $scope.setLimit) {
         QuizFactory.setConfig("SETLIMIT", $scope.setLimit);
         $rootScope.$broadcast("START");
       }
-      if (QuizFactory.getConfig("TIMELIMIT") != $scope.timeLimit) {
+      if (QuizFactory.getConfig("TIMELIMIT") !== $scope.timeLimit) {
         QuizFactory.setConfig("TIMELIMIT", $scope.timeLimit);
         $rootScope.$broadcast("START");
       }
-      if (QuizFactory.getConfig("DEBUGMODE") != $scope.debugMode) {
+      if (QuizFactory.getConfig("DEBUGMODE") !== $scope.debugMode) {
         QuizFactory.setConfig("DEBUGMODE", $scope.debugMode);
         $scope.quiz.init();
       }
-      if (QuizFactory.getConfig("SHUFFLEQUESTIONS") != $scope.shuffleQuestions) {
+      if (QuizFactory.getConfig("SHUFFLEQUESTIONS") !== $scope.shuffleQuestions) {
         QuizFactory.setConfig("SHUFFLEQUESTIONS", $scope.shuffleQuestions);
       }
-      if (QuizFactory.getConfig("SHUFFLEANSWERS") != $scope.shuffleAnswers) {
+      if (QuizFactory.getConfig("SHUFFLEANSWERS") !== $scope.shuffleAnswers) {
         QuizFactory.setConfig("SHUFFLEANSWERS", $scope.shuffleAnswers);
       }
-      if (QuizFactory.getConfig("SKIPCORRECT") != $scope.skipCorrect) {
+      if (QuizFactory.getConfig("SKIPCORRECT") !== $scope.skipCorrect) {
         QuizFactory.setConfig("SKIPCORRECT", $scope.skipCorrect);
         $scope.quiz.init();
       }
@@ -77,7 +77,7 @@ class DialogController {
           break;
         default:
           var cheat = $scope.cheat;
-          if (!angular.isUndefined(cheat) && cheat.indexOf("GOTO") == 0) {
+          if (!angular.isUndefined(cheat) && cheat.indexOf("GOTO") === 0) {
             $rootScope.$broadcast("GOTO", { "id": cheat.replace("GOTO", "") });
           }
           break;

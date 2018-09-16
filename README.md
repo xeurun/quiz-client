@@ -1,5 +1,5 @@
-# Zend
+# Quiz client
 
 ## TODO
- * perform end date
- * perform end questions
+
+* fix prod. build

@@ -20,7 +20,7 @@ class AnswerToastController {
       if (isDlgOpen) return;
       isDlgOpen = true;
 
-      $rootScope.$broadcast("SHOWHINT", { "hint": hint });
+      $rootScope.$broadcast("SHOWHINT", {"hint": hint, "hint_url": hint_url});
     };
 
     $rootScope.$on("HINTCLOSE", function (event, args) {

@@ -1,4 +1,3 @@
-
 /**
  * Webpack Plugins
  */
@@ -12,10 +11,7 @@ const isProd = false;
 
 module.exports = {
   mode: isProd ? "production" : "development",
-  entry: [
-    "./src/app.js",
-    "./src/app.scss"
-  ],
+  entry: "./src/app.js",
   output: {
     path: path.resolve(__dirname, 'assets'),
     filename: 'main.js',
@@ -25,33 +21,33 @@ module.exports = {
     rules: [
       {
         test: /\.scss$/,
-        use: ExtractTextPlugin.extract([ 'css-loader', 'sass-loader' ])
+        use: ExtractTextPlugin.extract(['css-loader', 'sass-loader'])
       },
       {
         test: /\.(jpg|png|gif)$/,
         use: 'file-loader'
       },
       {
-          test: /\.(svg|woff|woff2|eot|ttf)$/,
-          use: 'file-loader?outputPath=fonts/'
+        test: /\.(svg|woff|woff2|eot|ttf)$/,
+        use: 'file-loader?outputPath=fonts/'
       },
       {
-          test: /\.html$/,
-          use: 'html-loader'
+        test: /\.html$/,
+        use: 'html-loader'
       }
     ],
   },
   plugins: [
-      new HtmlWebpackPlugin({
-          filename: path.resolve(__dirname, 'index.html'),
-          template: path.resolve(__dirname, 'src/app.html'),
-          inject: false
-      }),
-      new ExtractTextPlugin("main.css"),
-      new CopyWebpackPlugin([
-        {from: 'node_modules/intro.js/minified/intro.min.js', to: path.resolve(__dirname, 'assets')},
-		    {from: 'node_modules/angular-intro.js/build/angular-intro.min.js', to: path.resolve(__dirname, 'assets')}
-      ])
+    new HtmlWebpackPlugin({
+      filename: path.resolve(__dirname, 'index.html'),
+      template: path.resolve(__dirname, 'src/app.html'),
+      inject: false
+    }),
+    new ExtractTextPlugin("main.css"),
+    new CopyWebpackPlugin([
+      {from: 'node_modules/intro.js/minified/intro.min.js', to: path.resolve(__dirname, 'assets')},
+      {from: 'node_modules/angular-intro.js/build/angular-intro.min.js', to: path.resolve(__dirname, 'assets')}
+    ])
   ],
   devServer: {
     host: "0.0.0.0",

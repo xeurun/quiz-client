@@ -223,7 +223,8 @@ class QuizController {
           bindToController: true,
           locals: {
             isCorrect: this.isCorrect,
-            hint: this.set.current.hint
+            hint: this.set.current.hint,
+            hint_url: this.set.current.hint_url
           }
         });
       }
@@ -257,7 +258,7 @@ class QuizController {
     };
 
     this.showHint = function (ev) {
-      $rootScope.$broadcast("SHOWHINT", { "hint": self.set.current.hint });
+      $rootScope.$broadcast("SHOWHINT", { "hint": self.set.current.hint, "hint_url": self.set.current.hint_url });
     };
 
     $rootScope.$on("SHOWHINT", function (event, args) {
@@ -265,7 +266,15 @@ class QuizController {
         .show($mdDialog
           .alert()
           .title('More info goes here.')
-          .htmlContent($sce.trustAsHtml("<strong>" + args.hint + "</strong><hr><br><iframe style='border:none;' height='600' width='9' sandbox='allow-forms allow-scripts' src='http://sandbox.onlinephpfunctions.com'></iframe>"))
+          .htmlContent(
+            $sce.trustAsHtml(
+              "<strong>"
+              + args.hint
+              + "</strong><hr><br><iframe style='border:none;' height='600' width='9' sandbox='allow-forms allow-scripts' src='"
+              + (args.hint_url ? args.hint_url : "http://sandbox.onlinephpfunctions.com")
+              + "'></iframe>"
+            )
+          )
           .ariaLabel('More info')
           .ok('Got it')
           .targetEvent(event)
