@@ -48,7 +48,7 @@ class IntroController {
         {
           element: '#step-question',
           intro: 'This is a current question with question text and answer variants or answer input field',
-          position: 'left'
+          position: 'bottom'
         },
         {
           element: '#step-before',

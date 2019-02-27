@@ -1,4 +1,4 @@
-# Zend
+# Quiz client
 
 ## TODO
 

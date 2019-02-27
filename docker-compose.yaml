@@ -1,18 +1,15 @@
 version: '3.6'
-networks:
-  public:
-    external: true
-    name: public
 
 services:
   node:
     container_name: ${DOCKER_PROJECT_NAME}-node
     build:
       context: .docker
-      dockerfile: Dockerfile-node
+      dockerfile: node.Dockerfile
       args:
-        VERSION: 8-alpine
+        VERSION: 10-alpine
         NODE_PORT: ${NODE_PORT}
+        DOCKER_PROJECT_DIR: ${DOCKER_PROJECT_DIR}
     environment:
       TZ: Europe/Moscow
       PW: /app
@@ -21,4 +18,9 @@ services:
     ports:
       - ${NODE_PORT}:${NODE_PORT}
     volumes:
-      - .:/app
+      - .:${DOCKER_PROJECT_DIR}
+
+networks:
+  public:
+    external: true
+    name: public
