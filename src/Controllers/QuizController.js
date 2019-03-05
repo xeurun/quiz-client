@@ -224,7 +224,7 @@ class QuizController {
           locals: {
             isCorrect: this.isCorrect,
             hint: this.set.current.hint,
-            hint_url: this.set.current.hint_url
+            hintUrl: this.set.current.hintUrl
           }
         });
       }
@@ -258,7 +258,7 @@ class QuizController {
     };
 
     this.showHint = function (ev) {
-      $rootScope.$broadcast("SHOWHINT", { "hint": self.set.current.hint, "hint_url": self.set.current.hint_url });
+      $rootScope.$broadcast("SHOWHINT", { "hint": self.set.current.hint, "hintUrl": self.set.current.hintUrl });
     };
 
     $rootScope.$on("SHOWHINT", function (event, args) {
@@ -271,7 +271,7 @@ class QuizController {
               "<strong>"
               + args.hint
               + "</strong><hr><br><iframe style='border:none;' height='600' width='9' sandbox='allow-forms allow-scripts' src='"
-              + (args.hint_url ? args.hint_url : "http://sandbox.onlinephpfunctions.com")
+              + (args.hintUrl ? args.hintUrl : "http://sandbox.onlinephpfunctions.com")
               + "'></iframe>"
             )
           )

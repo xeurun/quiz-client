@@ -5,7 +5,8 @@
     "Passing Score": "10",
     "Time Limit": "5 min",
     "File Version": "0.1.0",
-    "describe": "string '\n' must be output as new line"
+    "describe": "string '\n' must be output as new line",
+    "tags": ["php", "zend"]
   },
   "questions": [
     {
@@ -34,7 +35,9 @@
           "isCorrect": false
         }
       ],
-      "hint": "warning + exception"
+      "tags": ["php"],
+      "hint": "warning + exception",
+      "hintUrl": "http://sandbox.onlinephpfunctions.com"
     },
     {
       "id": 2,
@@ -62,7 +65,9 @@
           "isCorrect": false
         }
       ],
-      "hint": "exception"
+      "tags": ["php"],
+      "hint": "exception",
+      "hintUrl": "http://sandbox.onlinephpfunctions.com"
     },
     {
       "id": 3,
@@ -90,7 +95,9 @@
           "isCorrect": false
         }
       ],
-      "hint": "todo"
+      "tags": ["php"],
+      "hint": "todo",
+      "hintUrl": "http://sandbox.onlinephpfunctions.com"
     },
     {
       "id": 4,
@@ -108,7 +115,9 @@
           "isCorrect": false
         }
       ],
-      "hint": "todo"
+      "tags": ["php"],
+      "hint": "todo",
+      "hintUrl": "http://sandbox.onlinephpfunctions.com"
     },
     {
       "id": 5,
@@ -131,7 +140,9 @@
           "isCorrect": false
         }
       ],
-      "hint": "todo"
+      "tags": ["php"],
+      "hint": "todo",
+      "hintUrl": "http://sandbox.onlinephpfunctions.com"
     },
     {
       "id": 6,
@@ -164,7 +175,9 @@
           "isCorrect": true
         }
       ],
-      "hint": "Invalid numeric literal"
+      "tags": ["php"],
+      "hint": "Invalid numeric literal",
+      "hintUrl": "http://sandbox.onlinephpfunctions.com"
     },
     {
       "id": 7,
@@ -192,7 +205,9 @@
           "isCorrect": true
         }
       ],
-      "hint": "Warning:  Unsupported declare 'strict_type'"
+      "tags": ["php"],
+      "hint": "Warning:  Unsupported declare 'strict_type'",
+      "hintUrl": "http://sandbox.onlinephpfunctions.com"
     }
   ]
 }

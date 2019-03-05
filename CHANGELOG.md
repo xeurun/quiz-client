@@ -8,16 +8,16 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ## [Unreleased]
 
 ### Added - for new features.
-
 ### Changed - for changes in existing functionality.
-
 ### Fixed - for any bug fixes.
-
 ### Deprecated - for soon-to-be removed features.
-
 ### Removed -  for now removed features.
-
 ### Security - in case of vulnerabilities.
+
+## [1.0.7] - 2019-03-04
+
+## Changed
+* Change `hint_url` to `hintUrl`
 
 ## [1.0.6] - 2019-02-27
 
