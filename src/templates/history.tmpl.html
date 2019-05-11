@@ -13,15 +13,14 @@
     <md-dialog-content>
       <div class="md-dialog-content">
         <md-list class="md-dense" flex>
-          <md-subheader class="md-no-sticky">Попытки прохождения</md-subheader>
+          <md-subheader class="md-no-sticky">Attempts to pass</md-subheader>
           <md-list-item class="md-3-line" ng-repeat="element in history">
             <md-icon mb-font-set="md">history</md-icon>
             <div class="md-list-item-text" layout="column">
-              <h3>Дата прохождения: [[ element.date | prettyDate ]]</h3>
-              <p>Правильных ответов: [[ element.correct ]]</p>
-              <p>Неправильных ответов: [[ element.incorrect ]]</p>
-              <p>Процент правильных ответов: [[ element.correct / (element.incorrect + element.correct) * 100 | number :
-                0 ]]%</p>
+              <h3>Attempt date: [[ element.date | prettyDate ]]</h3>
+              <p>Correct answers: [[ element.correct ]]</p>
+              <p>Incorrect answers: [[ element.incorrect ]]</p>
+              <p>Ratio: [[ element.correct / (element.incorrect + element.correct) * 100 | number : 0 ]]%</p>
             </div>
             <md-button class="md-secondary md-icon-button" ng-click="removeHistory($index)" aria-label="call">
               <md-icon mb-font-set="md">clear</md-icon>

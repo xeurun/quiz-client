@@ -3,22 +3,21 @@ version: '3.6'
 services:
   node:
     container_name: ${DOCKER_PROJECT_NAME}-node
+    command:  ["npm", "run", "start"]
     build:
       context: .docker
       dockerfile: node.Dockerfile
       args:
-        VERSION: 10-alpine
-        NODE_PORT: ${NODE_PORT}
+        VERSION: 12-alpine
         DOCKER_PROJECT_DIR: ${DOCKER_PROJECT_DIR}
     environment:
-      TZ: Europe/Moscow
-      PW: /app
+      TIMEZONE: Europe/Moscow
     networks:
       - public
     ports:
       - ${NODE_PORT}:${NODE_PORT}
     volumes:
-      - .:${DOCKER_PROJECT_DIR}
+      - ./:${DOCKER_PROJECT_DIR}
 
 networks:
   public:

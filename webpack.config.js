@@ -7,15 +7,26 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 const path = require('path');
 
-const isProd = false;
+const watchOptions = {
+  ignored: /node_modules/,
+  aggregateTimeout: 300,
+  poll: true
+};
 
 module.exports = {
-  mode: isProd ? "production" : "development",
   entry: "./src/app.js",
   output: {
     path: path.resolve(__dirname, 'assets'),
     filename: 'main.js',
+    chunkFilename: '[name].bundle.js',
     publicPath: '/'
+  },
+  resolve: {
+    extensions: ['.js'],
+    modules: [
+      path.resolve(__dirname, 'node_modules'),
+      path.resolve(__dirname, 'src')
+    ]
   },
   module: {
     rules: [
@@ -50,10 +61,22 @@ module.exports = {
     }),
     new ExtractTextPlugin("main.css"),
     new CopyWebpackPlugin([
-      {from: 'node_modules/intro.js/minified/intro.min.js', to: path.resolve(__dirname, 'assets')},
-      {from: 'node_modules/angular-intro.js/build/angular-intro.min.js', to: path.resolve(__dirname, 'assets')}
+      { from: 'node_modules/intro.js/minified/intro.min.js', to: path.resolve(__dirname, 'assets') },
+      { from: 'node_modules/angular-intro.js/build/angular-intro.min.js', to: path.resolve(__dirname, 'assets') }
     ])
   ],
+  optimization: {
+    splitChunks: {
+      chunks: 'all',
+      cacheGroups: {
+        commons: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all'
+        }
+      }
+    }
+  },
   devServer: {
     host: "0.0.0.0",
     port: 4201,
@@ -63,16 +86,12 @@ module.exports = {
     contentBase: path.resolve(__dirname),
     compress: true,
     hot: true,
-    publicPath: '/',
+    overlay: true,
+    disableHostCheck: true,
     watchContentBase: true,
-    watchOptions: {
-      poll: true
-    }
+    watch: true,
+    watchOptions: watchOptions,
   },
   watch: true,
-  watchOptions: {
-    ignored: ['node_modules'],
-    aggregateTimeout: 300,
-    poll: 1000
-  }
+  watchOptions: watchOptions,
 };

@@ -1,29 +1,29 @@
 'use strict';
 
 class AnswerToastController {
-  /*@ngInject*/
-  constructor($rootScope, $scope, $mdDialog, $mdToast, isCorrect, hint) {
-    var isDlgOpen;
+  /* @ngInject */
+  constructor($rootScope, $scope, $mdToast, isCorrect, hint, hintUrl) {
+    let isDlgOpen;
 
     $scope.isCorrect = isCorrect;
-    $scope.closeToast = function () {
+    $scope.closeToast = function() {
       if (isDlgOpen) return;
 
       $mdToast
-        .hide()
-        .then(function () {
-          isDlgOpen = false;
-        });
+          .hide()
+          .then(function() {
+            isDlgOpen = false;
+          });
     };
 
-    $scope.openMoreInfo = function (e) {
+    $scope.openMoreInfo = function(e) {
       if (isDlgOpen) return;
       isDlgOpen = true;
 
-      $rootScope.$broadcast("SHOWHINT", {"hint": hint, "hintUrl": hintUrl});
+      $rootScope.$broadcast('SHOWHINT', {'hint': hint, 'hintUrl': hintUrl});
     };
 
-    $rootScope.$on("HINTCLOSE", function (event, args) {
+    $rootScope.$on('HINTCLOSE', function() {
       isDlgOpen = false;
     });
   }

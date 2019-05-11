@@ -5,33 +5,31 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](http://keepachangelog.com/)
 and this project adheres to [Semantic Versioning](http://semver.org/).
 
-## [Unreleased]
+## Unreleased
 
-### Added - for new features.
-### Changed - for changes in existing functionality.
-### Fixed - for any bug fixes.
-### Deprecated - for soon-to-be removed features.
-### Removed -  for now removed features.
-### Security - in case of vulnerabilities.
+### Added - for new features
+### Changed - for changes in existing functionality
+### Fixed - for any bug fixes
+### Deprecated - for soon-to-be removed features
+### Removed -  for now removed features
+### Security - in case of vulnerabilities
 
-## [1.0.7] - 2019-03-04
+## 1.0.7 - 2019-03-04
 
-## Changed
-* Change `hint_url` to `hintUrl`
+### Changed
+  * Change `hint_url` to `hintUrl`
 
-## [1.0.6] - 2019-02-27
+## 1.0.6 - 2019-02-27
 
-## Fixed
-* Intro block positions
+### Fixed
+  * Intro block positions
 
-## [1.0.5] - 2018-09-16
+## 1.0.5 - 2018-09-16
 
 ### Added
+  * Favicon
+  * Keyboard controlling
+  * Ending test confirm dialog
 
-* Favicon
-* Keyboard controlling
-* Ending test confirm dialog
-
-## [1.0.0] - 2018-01-31
-
-* First release
+## 1.0.0 - 2018-01-31
+  * First release

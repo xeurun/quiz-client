@@ -26,6 +26,15 @@
         <p>[[ quiz.getHeader("Passing Score") ]]</p>
         <h2>Describe</h2>
         <p>[[ quiz.getHeader("describe") ]]</p>
+        <h2>Alert!</h2>
+        <p>[[ quiz.getHeader("alert") ]]</p>
+        <h2>Describe</h2>
+        <p>[[ quiz.getHeader("describe") ]]</p>
+        <h2>Supported tags</h2>
+        <p>
+          <md-chips ng-model="tags" ng-init="tags = quiz.getHeader('tags')" readonly="true" md-removable="false">
+          </md-chips>
+        </p>
       </div>
     </md-dialog-content>
 
