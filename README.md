@@ -7,7 +7,7 @@ An open source platform application for taking quizzes/tests/surveys
 ---
 
 <p align="center">
-    <a href="https/xeurun.github.io/quiz-client/">
+    <a href="https://xeurun.github.io/quiz-client/">
         <img src="https://img.shields.io/website/https/xeurun.github.io/quiz-client/index.html.svg">
     </a>
     <br>
@@ -18,7 +18,7 @@ An open source platform application for taking quizzes/tests/surveys
     	<img src="https://requires.io/github/xeurun/quiz-client/requirements.svg?branch=master">
     </a>
     </br>
-    <a href="">
+    <a href="https://github.com/xeurun/quiz-client/pulls">
     	<img src="https://img.shields.io/badge/contributions-welcome-orange.svg">
     </a>
     <a href="https://github.com/xeurun/quiz-client/issues">
