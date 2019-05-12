@@ -24,8 +24,8 @@ An open source platform application for taking quizzes/tests/surveys
     <a href="https://github.com/xeurun/quiz-client/issues">
     	<img src="https://img.shields.io/github/issues/xeurun/quiz-client.svg">
     </a>
-    <a href="https://opensource.org/licenses/MIT">
-    	<img src="https://img.shields.io/badge/license-MIT-blue.svg">
+    <a href="https://choosealicense.com/licenses/gpl-3.0/">
+    	<img src="https://img.shields.io/badge/license-GPL3-blue.svg">
     </a>
 </p>
 
@@ -44,7 +44,7 @@ All the documentation is available on our [wiki](https://github.com/xeurun/quiz-
 
 ## License
 
-MIT
+GPL 3
 
 ---
 
