@@ -1,25 +1,18 @@
-version: '3.6'
+version: "3"
 
 services:
   node:
     container_name: ${DOCKER_PROJECT_NAME}-node
-    command:  ["npm", "run", "start"]
+    command: sleep 365d
     build:
       context: .docker
       dockerfile: node.Dockerfile
       args:
-        VERSION: 12-alpine
-        DOCKER_PROJECT_DIR: ${DOCKER_PROJECT_DIR}
+        VERSION: 12.9-alpine
     environment:
       TIMEZONE: Europe/Moscow
-    networks:
-      - public
+      NODE_PORT: ${NODE_PORT}
     ports:
       - ${NODE_PORT}:${NODE_PORT}
     volumes:
-      - ./:${DOCKER_PROJECT_DIR}
-
-networks:
-  public:
-    external: true
-    name: public
+      - .:/workspace
