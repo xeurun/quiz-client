@@ -58,7 +58,8 @@ module.exports = (env, argv) => {
       new HtmlWebpackPlugin({
         filename: path.resolve(__dirname, 'index.html'),
         template: path.resolve(__dirname, 'src/app.html'),
-        base: argv.mode !== 'production' ? '/' : '/quiz-client/'
+        base: argv.mode !== 'production' ? '/' : '/quiz-client/',
+        inject: false
       }),
       new ExtractTextPlugin("main.css"),
       new CopyWebpackPlugin([
