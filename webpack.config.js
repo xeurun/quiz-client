@@ -2,7 +2,7 @@
  * Webpack Plugins
  */
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 
 const path = require('path');
@@ -20,7 +20,7 @@ module.exports = (env, argv) => {
       path: path.resolve(__dirname, 'assets'),
       filename: 'main.js',
       chunkFilename: '[name].bundle.js',
-      publicPath: '/'
+      publicPath: 'assets'
     },
     resolve: {
       extensions: ['.js'],
@@ -37,8 +37,17 @@ module.exports = (env, argv) => {
           loader: 'ng-annotate-loader?ngAnnotate=ng-annotate-patched'
         },
         {
-          test: /\.scss$/,
-          use: ExtractTextPlugin.extract(['css-loader', 'sass-loader'])
+          test: /\.(sa|sc|c)ss$/,
+          use: [
+            {
+              loader: MiniCssExtractPlugin.loader,
+              options: {
+                hmr: process.env.NODE_ENV === 'development',
+              },
+            },
+            'css-loader',
+            'sass-loader',
+          ],
         },
         {
           test: /\.(jpg|png|gif)$/,
@@ -57,11 +66,13 @@ module.exports = (env, argv) => {
     plugins: [
       new HtmlWebpackPlugin({
         filename: path.resolve(__dirname, 'index.html'),
-        template: path.resolve(__dirname, 'src/app.html'),
+        template: path.resolve(__dirname, 'src/app.ejs'),
         base: argv.mode !== 'production' ? '/' : '/quiz-client/',
         inject: false
       }),
-      new ExtractTextPlugin("main.css"),
+      new MiniCssExtractPlugin({
+        filename: '[name].css',
+      }),
       new CopyWebpackPlugin([
         { from: 'node_modules/intro.js/minified/intro.min.js', to: path.resolve(__dirname, 'assets') },
         { from: 'node_modules/angular-intro.js/build/angular-intro.min.js', to: path.resolve(__dirname, 'assets') }

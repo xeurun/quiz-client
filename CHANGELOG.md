@@ -14,6 +14,10 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Removed -  for now removed features
 ### Security - in case of vulnerabilities
 
+## 1.1.0 - 2019-10-07
+
+## 1.0.8 - 2019-05-12
+
 ## 1.0.7 - 2019-03-04
 
 ### Changed
