@@ -287,20 +287,23 @@ class QuizController {
       );
     };
 
+    function getHintMessage(message) {
+      return `<strong>${message}</strong>`
+    }
+    
+    function getHintIFrame(url) {
+      return`<iframe style="border:none;" height="600" width="9" sandbox"allow-forms allow-scripts" src="${url}"></iframe>`;
+    }
+
     $rootScope.$on('SHOWHINT', function (event, args) {
+      let hintMessage = args.hint || "No hint given!";
+      let hintWebsite = args.hintUrl || "https://www.google.com";
+      let htmlContent = `${getHintMessage(hintMessage)}<hr/><br/>${getHintIFrame(hintWebsite)}`;
       $mdDialog
         .show($mdDialog
           .alert()
           .title('More info goes here.')
-          .htmlContent(
-            $sce.trustAsHtml(
-              '<strong>'
-              + args.hint
-              + '</strong><hr><br><iframe style=\'border:none;\' height=\'600\' width=\'9\' sandbox=\'allow-forms allow-scripts\' src=\''
-              + (args.hintUrl ? args.hintUrl : 'https://google.com')
-              + '\'></iframe>'
-            )
-          )
+          .htmlContent($sce.trustAsHtml(htmlContent))
           .ariaLabel('More info')
           .ok('Got it')
           .targetEvent(event)
