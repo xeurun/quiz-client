@@ -69,16 +69,12 @@ class QuizFactory {
             // Set id if null;
             value.id = value.id || (key + 1);
             if (
-              (self.config.DEBUGMODE && value.hint == '')
-              || (!self.config.DEBUGMODE && value.hint != '')
-            ) {
-              if (
                 !self.getConfig('SKIPCORRECT')
                 || answeredIds.indexOf(value.id) == -1
               ) {
                 self.questions.push(value);
               }
-            }
+
           });
           self.header = json.data.header;
           $rootScope.$broadcast('START');
