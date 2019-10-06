@@ -3,16 +3,16 @@
 class QuizFactory {
   /* @ngInject */
   constructor(
-      $rootScope,
-      $http,
-      $cookies,
-      $mdToast,
-      $location,
-      APP_VERSION,
-      localStorageService
+    $rootScope,
+    $http,
+    $cookies,
+    $mdToast,
+    $location,
+    APP_VERSION,
+    localStorageService
   ) {
     return {
-      init: function() {
+      init: function () {
         const self = this;
 
         const config = $cookies.getObject('config') || {};
@@ -32,6 +32,7 @@ class QuizFactory {
           HIDEALERT: angular.isUndefined(config.HIDEALERT)
             ? false : config.HIDEALERT,
           DEBUGMODE: config.DEBUGMODE || false,
+          THEME: config.THEME || 'light',
         };
 
         if (self.config.QUIZ === null && self.config.QUIZCUSTOM === null) {
@@ -61,11 +62,11 @@ class QuizFactory {
 
           const answered = localStorageService.get('answered') || [];
           const answeredIds = [];
-          angular.forEach(answered, function(value, key) {
+          angular.forEach(answered, function (value, key) {
             answeredIds.push(value.questionId);
           });
 
-          angular.forEach(json.data.questions, function(value, key) {
+          angular.forEach(json.data.questions, function (value, key) {
             // Set id if null;
             value.id = value.id || (key + 1);
             if (
@@ -81,14 +82,14 @@ class QuizFactory {
         }, function error(response) {
           console.log('No response, or ' + response);
           $mdToast.show(
-              $mdToast.simple()
-                  .textContent('Questions db loading failed!')
-                  .position('bottom right')
-                  .hideDelay(0)
+            $mdToast.simple()
+              .textContent('Questions db loading failed!')
+              .position('bottom right')
+              .hideDelay(0)
           );
         });
       },
-      getHeader: function(key) {
+      getHeader: function (key) {
         if (key) {
           return (
             this.header
@@ -98,18 +99,18 @@ class QuizFactory {
 
         return this.header;
       },
-      getQuestions: function(index) {
+      getQuestions: function (index) {
         if (index) {
           return this.questions[index];
         }
 
         return this.questions;
       },
-      setConfig: function(key, value) {
+      setConfig: function (key, value) {
         this.config[key] = value;
         $cookies.putObject('config', this.config);
       },
-      getConfig: function(key) {
+      getConfig: function (key) {
         if (key) {
           return (
             this.config

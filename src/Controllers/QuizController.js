@@ -290,15 +290,16 @@ class QuizController {
     function getHintMessage(message) {
       return `<strong>${message}</strong>`
     }
-    
+
     function getHintIFrame(url) {
-      return`<iframe style="border:none;" height="600" width="9" sandbox"allow-forms allow-scripts" src="${url}"></iframe>`;
+      return`<iframe frameborder="0" height="800" width="600" allowfullscreen sandbox"allow-forms allow-scripts" src="${url}"></iframe>`;
     }
 
     $rootScope.$on('SHOWHINT', function (event, args) {
       let hintMessage = args.hint || "No hint given!";
-      let hintWebsite = args.hintUrl || "https://www.google.com";
+      let hintWebsite = args.hintUrl || "https://www.google.com/webhp?igu=1";
       let htmlContent = `${getHintMessage(hintMessage)}<hr/><br/>${getHintIFrame(hintWebsite)}`;
+
       $mdDialog
         .show($mdDialog
           .alert()

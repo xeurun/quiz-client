@@ -3,19 +3,21 @@
 class DialogController {
   /* @ngInject */
   constructor(
-      $rootScope,
-      $scope,
-      $window,
-      $mdDialog,
-      localStorageService,
-      QuizFactory,
-      APP_VERSION
+    $rootScope,
+    $scope,
+    $window,
+    $mdDialog,
+    localStorageService,
+    QuizFactory,
+    APP_VERSION
   ) {
     $scope.repos = loadAll();
     $scope.quiz = QuizFactory;
+    $scope.pageNumber = 'quiz';
     $scope.customUrl = QuizFactory.getConfig('QUIZCUSTOM');
     $scope.setLimit = QuizFactory.getConfig('SETLIMIT');
     $scope.debugMode = QuizFactory.getConfig('DEBUGMODE');
+    $scope.theme = QuizFactory.getConfig('THEME') === 'light';
     $scope.timeLimit = QuizFactory.getConfig('TIMELIMIT');
     $scope.shuffleQuestions = QuizFactory.getConfig('SHUFFLEQUESTIONS');
     $scope.shuffleAnswers = QuizFactory.getConfig('SHUFFLEANSWERS');
@@ -25,22 +27,22 @@ class DialogController {
     $scope.cheat = undefined;
     $scope.history = localStorageService.get('history') || [];
 
-    $scope.close = function() {
+    $scope.close = function () {
       $mdDialog.hide();
     };
 
-    $scope.removeHistory = function(index) {
+    $scope.removeHistory = function (index) {
       const history = localStorageService.get('history') || [];
       history.splice(index, 1);
       localStorageService.set('history', history);
       $scope.history = history;
     };
 
-    $scope.dropCorrect = function(index) {
+    $scope.dropCorrect = function (index) {
       localStorageService.set('answered', []);
     };
 
-    $scope.save = function() {
+    $scope.save = function () {
       let reload = false;
       if ($scope.selectedItem && QuizFactory.getConfig('QUIZ') !== $scope.selectedItem.file) {
         QuizFactory.setConfig('QUIZ', $scope.selectedItem.file);
@@ -52,9 +54,15 @@ class DialogController {
         QuizFactory.setConfig('QUIZCUSTOM', $scope.customUrl);
         reload = true;
       }
+      if (QuizFactory.getConfig('THEME') !== $scope.theme) {
+        QuizFactory.setConfig('THEME', $scope.theme ? 'light' : 'dark');
+        reload = true;
+      }
+
       if (reload) {
         $window.location.reload();
       }
+
       if (QuizFactory.getConfig('SETLIMIT') !== $scope.setLimit) {
         QuizFactory.setConfig('SETLIMIT', $scope.setLimit);
         $rootScope.$broadcast('START');
@@ -91,7 +99,7 @@ class DialogController {
         default:
           var cheat = $scope.cheat;
           if (!angular.isUndefined(cheat) && cheat.indexOf('GOTO') === 0) {
-            $rootScope.$broadcast('GOTO', {'id': cheat.replace('GOTO', '')});
+            $rootScope.$broadcast('GOTO', { 'id': cheat.replace('GOTO', '') });
           }
           break;
       }
@@ -108,7 +116,7 @@ class DialogController {
 
       const file = QuizFactory.getConfig('QUIZ');
 
-      return repos.map(function(repo) {
+      return repos.map(function (repo) {
         repo.value = repo.name.toLowerCase();
         if (repo.file === file) {
           $scope.selectedItem = repo;

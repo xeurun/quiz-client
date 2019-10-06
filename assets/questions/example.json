@@ -12,13 +12,11 @@
       "zend"
     ]
   },
-  "questions": [
-    {
+  "questions": [{
       "id": 1,
       "text": "What is the output of the following code?\n\n$b = 2/0;",
       "answers": [],
-      "variants": [
-        {
+      "variants": [{
           "id": "A",
           "text": "DivisionByZeroError",
           "isCorrect": false
@@ -43,14 +41,13 @@
         "php"
       ],
       "hint": "warning + exception",
-      "hintUrl": "http://sandbox.onlinephpfunctions.com"
+      "hintUrl": ""
     },
     {
       "id": 2,
       "text": "What is the output of the following code?\n\nintdiv(1, 0);",
       "answers": [],
-      "variants": [
-        {
+      "variants": [{
           "id": "A",
           "text": "DivisionByZeroError",
           "isCorrect": true
@@ -75,14 +72,13 @@
         "php"
       ],
       "hint": "exception",
-      "hintUrl": "http://sandbox.onlinephpfunctions.com"
+      "hintUrl": "https://3v4l.org"
     },
     {
       "id": 3,
       "text": "Re-initialize previously executed the statement for execution?",
       "answers": [],
-      "variants": [
-        {
+      "variants": [{
           "id": "A",
           "text": "PDOStatement::reset()",
           "isCorrect": false
@@ -107,14 +103,13 @@
         "php"
       ],
       "hint": "todo",
-      "hintUrl": "http://sandbox.onlinephpfunctions.com"
+      "hintUrl": "https://3v4l.org"
     },
     {
       "id": 4,
       "text": "What is the output of the following code?\n\n[1,2,3] + [4,5,6,7]",
       "answers": [],
-      "variants": [
-        {
+      "variants": [{
           "id": "A",
           "text": "1,2,3,7",
           "isCorrect": true
@@ -129,14 +124,13 @@
         "php"
       ],
       "hint": "todo",
-      "hintUrl": "http://sandbox.onlinephpfunctions.com"
+      "hintUrl": "https://3v4l.org"
     },
     {
       "id": 5,
       "text": "What is the output of the following code?\n\narray_merge([\"one\",\"two\"], [\"three\"])",
       "answers": [],
-      "variants": [
-        {
+      "variants": [{
           "id": "A",
           "text": "\"one\",\"two\",\"three\"",
           "isCorrect": true
@@ -156,14 +150,13 @@
         "php"
       ],
       "hint": "todo",
-      "hintUrl": "http://sandbox.onlinephpfunctions.com"
+      "hintUrl": "https://3v4l.org"
     },
     {
       "id": 6,
       "text": "What will output var_dump(078)?",
       "answers": [],
-      "variants": [
-        {
+      "variants": [{
           "id": "A",
           "text": "78",
           "isCorrect": false
@@ -193,14 +186,13 @@
         "php"
       ],
       "hint": "Invalid numeric literal",
-      "hintUrl": "http://sandbox.onlinephpfunctions.com"
+      "hintUrl": "https://3v4l.org"
     },
     {
       "id": 7,
       "text": "What is the output of the following code?\n\ndeclare(strict_type=1);\nfunction test(int $a) \n{\n    return $a;\n}\ntest(20);",
       "answers": [],
-      "variants": [
-        {
+      "variants": [{
           "id": "A",
           "text": "Error",
           "isCorrect": false
@@ -225,7 +217,7 @@
         "php"
       ],
       "hint": "Warning:  Unsupported declare 'strict_type'",
-      "hintUrl": "http://sandbox.onlinephpfunctions.com"
+      "hintUrl": "https://3v4l.org"
     }
   ]
 }

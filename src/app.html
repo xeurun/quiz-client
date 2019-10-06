@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-<base href="/quiz-client/">
 
 <head>
   <meta charset="utf-8">
@@ -121,11 +120,12 @@
         </md-button>
         <md-button id="step-submit" class="md-raised md-primary" ng-click="qc.submit()" ng-hide="qc.end">
           <md-tooltip md-direction="top">[[ qc.submitted ? 'Next question' : 'Submit question answers' ]]</md-tooltip>
-          [[ qc.submitted ? (qc.set.pos < qc.set.questions.length ? 'Next' : 'Done' ) : 'Submit' ]] </md-button>
-            <md-button id="step-next" ng-disabled="qc.set.questions.length <= qc.set.pos" class="md-icon-button"
-            id="step-next" aria-label="Next" ng-click="qc.next($event)">
-            <md-tooltip md-direction="right">Next question</md-tooltip>
-            <md-icon mb-font-set="md">navigate_next</md-icon>
+          [[ qc.submitted ? qc.set.pos &lt; qc.set.questions.length ? 'Next' : 'Done' : 'Submit' ]]
+        </md-button>
+        <md-button id="step-next" ng-disabled="qc.set.questions.length <= qc.set.pos" class="md-icon-button"
+          id="step-next" aria-label="Next" ng-click="qc.next($event)">
+          <md-tooltip md-direction="right">Next question</md-tooltip>
+          <md-icon mb-font-set="md">navigate_next</md-icon>
         </md-button>
       </section>
       <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>

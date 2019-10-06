@@ -9,5 +9,4 @@ RUN apk update \
 # Install frontend utils
 RUN npm i -g npm
 
-ARG DOCKER_PROJECT_DIR
-WORKDIR ${DOCKER_PROJECT_DIR}
+WORKDIR /workspace
