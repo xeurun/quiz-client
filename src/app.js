@@ -54,7 +54,10 @@ angular
         .setStorageType('localStorage')
         .setNotify(false, false);
 
-      const config = angular.fromJson(window.localStorage.getItem('quiz-client.config'));
+      const config = angular.fromJson(
+        window.localStorage.getItem('quiz-client.config') || ''
+      );
+
       if (config.THEME === 'dark') {
         $mdThemingProvider.theme('default')
           .primaryPalette('grey')
