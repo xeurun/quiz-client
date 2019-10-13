@@ -55,7 +55,7 @@ angular
         .setNotify(false, false);
 
       const config = angular.fromJson(
-        window.localStorage.getItem('quiz-client.config') || ''
+        window.localStorage.getItem('quiz-client.config') || '{}'
       );
 
       if (config.THEME === 'dark') {
