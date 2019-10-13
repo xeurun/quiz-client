@@ -86,13 +86,13 @@
                 Question number [[ qc.set.current.id ]]
                 ([[ qc.set.pos + "/" + qc.set.questions.length ]])
               </legend>
-              <md-chips ng-model="qc.set.current.tags" readonly="true" md-removable="false">
-              </md-chips>
+              <md-chips ng-model="qc.set.current.tags" readonly="true" md-removable="false"></md-chips>
               <div layout="row" layout-wrap flex>
                 <md-content flex layout-padding>
-                  <div class="hljs" hljs hljs-source="qc.set.current.text"></div>
+                  <div class="hljs" ng-class="{'hljs-dark': qc.quiz.getConfig('THEME') === 'dark'}" hljs
+                    hljs-source="qc.set.current.text"></div>
                 </md-content>
-                <div class="demo-select-all-checkboxes" flex="100" ng-repeat="variant in qc.set.current.variants">
+                <div class=" demo-select-all-checkboxes" flex="100" ng-repeat="variant in qc.set.current.variants">
                   <md-checkbox ng-keypress="false" ng-disabled="qc.disabled[qc.set.current.id] || qc.end"
                     ng-class="qc.showAnswers ? (variant.isCorrect ? 'variant-green' : 'variant-red') : 'variant-default'"
                     ng-checked="qc.exists(variant, qc.answers)" ng-click="qc.toggle(variant, qc.answers)">

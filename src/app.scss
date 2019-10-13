@@ -5,259 +5,268 @@
 
 
 md-progress-circular {
-    position: absolute;
-    left: 0;
-    top: 0;
-    z-index: 99999;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 99999;
 }
 
 .jfk-bubble,
 .gtx-bubble {
-    z-index: 99999999999999 !important;
+  z-index: 99999999999999 !important;
 }
 
 .hljs {
-    background: #fafafa !important;
+  background: #fafafa !important;
 }
 
 .hljs pre {
-    white-space: pre-wrap;
+  white-space: pre-wrap;
 }
 
 .score-counters {
-    cursor: default;
+  cursor: default;
 }
 
 .questions {
-    font-family: monospace;
-    font-size: 20px;
+  font-family: monospace;
+  font-size: 20px;
 }
 
 iframe {
-    width: 900px;
-    height: 600px;
+  width: 900px;
+  height: 600px;
 }
 
 md-input-container.md-default-theme.md-input-invalid .md-input,
 md-input-container.md-input-invalid .md-input {
-    color: #F44336 !important;
+  color: #F44336 !important;
 }
 
 md-input-container.md-default-theme.md-input-valid .md-input,
 md-input-container.md-input-valid .md-input {
-    border-color: #4CAF50 !important;
+  border-color: #4CAF50 !important;
 }
 
 .text-green,
 .variant-green .md-label {
-    color: #4CAF50 !important;
+  color: #4CAF50 !important;
 }
+
 .text-red,
 .variant-red .md-label {
-    color: #F44336 !important;
+  color: #F44336 !important;
 }
 
 .checkboxdemoSelectAll .demo-legend {
-    color: #3F51B5; }
+  color: #3F51B5;
+}
 
 .checkboxdemoSelectAll .demo-fieldset {
-    border-style: solid;
-    border-width: 1px;
-    height: 100%; }
+  border-style: solid;
+  border-width: 1px;
+  height: 100%;
+}
 
 .checkboxdemoSelectAll .demo-select-all-checkboxes {
-    padding-left: 30px; }
+  padding-left: 30px;
+}
 
 md-checkbox.dotted .md-icon {
-    border-width: 1px;
-    border-style: dashed;
+  border-width: 1px;
+  border-style: dashed;
 }
+
 .toolbardemoBasicUsage md-toolbar md-icon.md-default-theme {
-    color: white;
+  color: white;
 }
 
 .icondemoFontIconsWithClassnames .appDemoFontIconsWithClassnames {
-    padding: 25px;
-    width: 100%;
+  padding: 25px;
+  width: 100%;
 }
 
 .icondemoFontIconsWithClassnames .appDemoFontIconsWithClassnames,
 .icondemoFontIconsWithClassnames .appDemoFontIconsWithClassnames *:before,
 .icondemoFontIconsWithClassnames .appDemoFontIconsWithClassnames *:after {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 .icondemoFontIconsWithClassnames [class^="icon-"]:before,
 .icondemoFontIconsWithClassnames [class*=" icon-"]:before {
-    font-family: "icomoon";
-    display: inline-block;
-    vertical-align: middle;
-    line-height: 1;
-    font-weight: normal;
-    font-style: normal;
-    text-decoration: inherit;
-    text-transform: none;
-    text-rendering: optimizeLegibility;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
+  font-family: "icomoon";
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1;
+  font-weight: normal;
+  font-style: normal;
+  text-decoration: inherit;
+  text-transform: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .icondemoFontIconsWithClassnames .icon-home:before {
-    content: "\e900";
+  content: "\e900";
 }
 
 .icondemoFontIconsWithClassnames .icon-clock:before {
-    content: "\e94e";
+  content: "\e94e";
 }
 
 .icondemoFontIconsWithClassnames .icon-user-plus:before {
-    content: "\e973";
+  content: "\e973";
 }
 
 .icondemoFontIconsWithClassnames .icon-google-plus2:before {
-    content: "\ea89";
+  content: "\ea89";
 }
 
 .icondemoFontIconsWithClassnames .icon-youtube4:before {
-    content: "\ea9a";
+  content: "\ea9a";
 }
 
 .icondemoFontIconsWithClassnames .icon-settings:before {
-    content: "\e600";
+  content: "\e600";
 }
 
 .icondemoFontIconsWithClassnames md-progress-circular {
-    margin-bottom: 20px;
+  margin-bottom: 20px;
 }
 
 .icondemoFontIconsWithClassnames header {
-    overflow: hidden;
+  overflow: hidden;
 }
 
 .icondemoFontIconsWithClassnames header h1 {
-    color: #888;
-    font-size: 36px;
-    font-weight: 300;
+  color: #888;
+  font-size: 36px;
+  font-weight: 300;
 }
 
 .icondemoFontIconsWithClassnames .container {
-    margin: 0 auto;
-    max-width: 1200px;
-    min-width: 960px;
-    padding: 40px 40px;
-    font: 14px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: 0 auto;
+  max-width: 1200px;
+  min-width: 960px;
+  padding: 40px 40px;
+  font: 14px/1.5 "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
 .icondemoFontIconsWithClassnames .glyph {
-    border-bottom: 1px dotted #ccc;
-    padding: 10px 0 20px;
-    margin-bottom: 20px;
+  border-bottom: 1px dotted #ccc;
+  padding: 10px 0 20px;
+  margin-bottom: 20px;
 }
 
 .icondemoFontIconsWithClassnames .preview-scale,
 .icondemoFontIconsWithClassnames .preview-glyphs {
-    display: flex;
-    flex-direction: row;
+  display: flex;
+  flex-direction: row;
 }
 
 .icondemoFontIconsWithClassnames .preview-scale {
-    color: #888;
-    font-size: 12px;
-    margin-top: 24px;
+  color: #888;
+  font-size: 12px;
+  margin-top: 24px;
 }
 
 .icondemoFontIconsWithClassnames .step {
-    flex-grow: 1;
-    line-height: 0.5;
+  flex-grow: 1;
+  line-height: 0.5;
 }
 
 .icondemoFontIconsWithClassnames .usage {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 .icondemoFontIconsWithClassnames .usage input {
-    font-family: monospace;
-    text-align: center;
+  font-family: monospace;
+  text-align: center;
 }
 
 .icondemoFontIconsWithClassnames .usage .point {
-    width: 150px;
+  width: 150px;
 }
 
 .icondemoFontIconsWithClassnames .usage .class {
-    width: 250px;
+  width: 250px;
 }
 
 .icondemoFontIconsWithClassnames md-radio-button {
-    display: inline-block;
+  display: inline-block;
 }
 
 .icondemoFontIconsWithClassnames .loading {
-    background-color: black;
-    filter: alpha(opacity=40);
-    height: 100%;
-    left: 0;
-    opacity: .40;
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 90;
+  background-color: black;
+  filter: alpha(opacity=40);
+  height: 100%;
+  left: 0;
+  opacity: .40;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 90;
 }
 
 .icondemoFontIconsWithClassnames .loading md-progress-circular {
-    left: 50%;
-    position: fixed;
-    top: 48%;
-    z-index: 100;
+  left: 50%;
+  position: fixed;
+  top: 48%;
+  z-index: 100;
 }
 
 .checkboxdemoSelectAll .demo-legend {
-    color: #3F51B5;
+  color: #3F51B5;
 }
 
 .checkboxdemoSelectAll .demo-fieldset {
-    border-style: solid;
-    border-width: 1px;
-    height: 100%;
+  border-style: solid;
+  border-width: 1px;
+  height: 100%;
 }
 
 .checkboxdemoSelectAll .demo-select-all-checkboxes {
-    padding-left: 30px;
+  padding-left: 30px;
 }
 
 .dialogdemoBasicUsage #popupContainer {
-    position: relative;
+  position: relative;
 }
 
 .dialogdemoBasicUsage .footer {
-    width: 100%;
-    text-align: center;
-    margin-left: 20px;
+  width: 100%;
+  text-align: center;
+  margin-left: 20px;
 }
 
-.dialogdemoBasicUsage .footer, .dialogdemoBasicUsage .footer > code {
-    font-size: 0.8em;
-    margin-top: 50px;
+.dialogdemoBasicUsage .footer,
+.dialogdemoBasicUsage .footer>code {
+  font-size: 0.8em;
+  margin-top: 50px;
 }
 
 .dialogdemoBasicUsage button {
-    width: 200px;
+  width: 200px;
 }
 
 .dialogdemoBasicUsage div#status {
-    color: #c60008;
+  color: #c60008;
 }
 
 .dialogdemoBasicUsage .dialog-demo-prerendered md-checkbox {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
-@media (prefers-color-scheme: dark) {
+
+.hljs-dark {
+  display: block;
+  overflow-x: auto;
+  padding: 0.5em;
+  background: #282a36 !important;
+
   .hljs {
-    display: block;
-    overflow-x: auto;
-    padding: 0.5em;
-    background: #282a36;
+    background: #282a36 !important;
   }
 
   .hljs-built_in,

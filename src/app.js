@@ -13,7 +13,7 @@ require('angular-hotkeys');
 
 import './app.scss';
 
-const APP_VERSION = '1.1.0';
+const APP_VERSION = '1.2.0';
 
 angular
   .module(
@@ -54,14 +54,24 @@ angular
         .setStorageType('localStorage')
         .setNotify(false, false);
 
+      const config = angular.fromJson(window.localStorage.getItem('quiz-client.config'));
+      if (config.THEME === 'dark') {
+        $mdThemingProvider.theme('default')
+          .primaryPalette('grey')
+          .accentPalette('grey')
+          .dark();
+      }
+
       $mdThemingProvider.enableBrowserColor({
         theme: 'default',
         palette: 'primary',
         hue: '200'
       });
     }
-  ).run(function (QuizFactory) {
-    QuizFactory.init();
+  ).run(function ($mdTheming, $rootScope, QuizFactory) {
+    QuizFactory.init().then(() => {
+      $rootScope.$broadcast('START');
+    });
   })
   .value('APP_VERSION', APP_VERSION)
   .filter('orderObjectBy', function () {

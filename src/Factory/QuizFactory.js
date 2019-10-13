@@ -5,21 +5,22 @@ class QuizFactory {
   constructor(
     $rootScope,
     $http,
-    $cookies,
     $mdToast,
     $location,
     APP_VERSION,
     localStorageService
   ) {
     return {
-      init: function () {
+      init: async function () {
         const self = this;
 
-        const config = $cookies.getObject('config') || {};
+        const config = localStorageService.get('config') || {};
         self.config = {
           APP_VERSION: config.APP_VERSION || APP_VERSION,
           QUIZ: config.QUIZ || 'example.json',
-          QUIZCUSTOM: config.QUIZCUSTOM || null,
+          QUIZTYPE: config.QUIZTYPE || 'choice',
+          QUIZCUSTOMURL: config.QUIZCUSTOMURL || null,
+          QUIZCUSTOMJSON: config.QUIZCUSTOMJSON || null,
           SETLIMIT: config.SETLIMIT || 75,
           TIMELIMIT: config.TIMELIMIT || 90,
           SHOWANSWERS: config.SHOWANSWERS || false,
@@ -35,59 +36,75 @@ class QuizFactory {
           THEME: config.THEME || 'light',
         };
 
-        if (self.config.QUIZ === null && self.config.QUIZCUSTOM === null) {
-          self.setConfig('QUIZ', 'example.json');
-        }
-
         if (self.config.APP_VERSION !== APP_VERSION) {
           alert('New version, see changelog!');
           window.open('CHANGELOG.md', '_blank');
           self.setConfig('APP_VERSION', APP_VERSION);
         }
 
-        if (!self.config.QUIZCUSTOM) {
-          self.config.QUIZCUSTOM = 'assets/questions/' + self.config.QUIZ;
+        let quizUrl = null;
+        if (self.config.QUIZTYPE === 'choice') {
+          quizUrl = 'assets/questions/' + self.config.QUIZ;
+        } else if (self.config.QUIZTYPE === 'url') {
+          quizUrl = self.config.QUIZCUSTOMURL;
         }
 
         if ($location.search().hasOwnProperty('quizCustomUrl')) {
-          self.config.QUIZCUSTOM = $location.search()['quizCustomUrl'];
+          // if query parameter quizCustomUrl has, load him priority
+          quizUrl = $location.search()['quizCustomUrl'];
         }
 
-        $http({
-          method: 'GET',
-          url: self.config.QUIZCUSTOM,
-        }).then(function success(response) {
-          const json = angular.fromJson(response);
-          self.questions = [];
-
-          const answered = localStorageService.get('answered') || [];
-          const answeredIds = [];
-          angular.forEach(answered, function (value, key) {
-            answeredIds.push(value.questionId);
+        if (quizUrl) {
+          return new Promise((resolve, reject) => {
+            $http({
+              method: 'GET',
+              url: quizUrl
+            }).then(function success(response) {
+              self.loadData(response.data);
+              resolve();
+            }, function error(response) {
+              console.log('No response, or ' + response);
+              $mdToast.show(
+                $mdToast.simple()
+                  .textContent('Questions db loading failed!')
+                  .position('bottom right')
+                  .hideDelay(0)
+              );
+              reject();
+            });
           });
-
-          angular.forEach(json.data.questions, function (value, key) {
-            // Set id if null;
-            value.id = value.id || (key + 1);
-            if (
-                !self.getConfig('SKIPCORRECT')
-                || answeredIds.indexOf(value.id) == -1
-              ) {
-                self.questions.push(value);
-              }
-
+        } else if (self.config.QUIZTYPE === 'text') {
+          return new Promise((resolve) => {
+            self.loadData(angular.fromJson(self.config.QUIZCUSTOMJSON));
+            resolve();
           });
-          self.header = json.data.header;
-          $rootScope.$broadcast('START');
-        }, function error(response) {
-          console.log('No response, or ' + response);
-          $mdToast.show(
-            $mdToast.simple()
-              .textContent('Questions db loading failed!')
-              .position('bottom right')
-              .hideDelay(0)
-          );
+        }
+
+        throw new Error('Test data loading - failed!');
+      },
+      loadData: function (data) {
+        const self = this;
+
+        self.questions = [];
+
+        const answered = localStorageService.get('answered') || [];
+        const answeredIds = [];
+        angular.forEach(answered, function (value, key) {
+          answeredIds.push(value.questionId);
         });
+
+        angular.forEach(data.questions, function (value, key) {
+          // Set id if null;
+          value.id = value.id || (key + 1);
+          if (
+            !self.getConfig('SKIPCORRECT')
+            || answeredIds.indexOf(value.id) == -1
+          ) {
+            self.questions.push(value);
+          }
+        });
+
+        self.header = data.header;
       },
       getHeader: function (key) {
         if (key) {
@@ -108,7 +125,7 @@ class QuizFactory {
       },
       setConfig: function (key, value) {
         this.config[key] = value;
-        $cookies.putObject('config', this.config);
+        localStorageService.set('config', this.config);
       },
       getConfig: function (key) {
         if (key) {

@@ -70,6 +70,20 @@ class QuizController {
         },
       });
 
+    for (let keyNumber = 0; keyNumber < 9; keyNumber++) {
+      hotkeys
+        .add({
+          combo: '' + (keyNumber + 1),
+          callback: function ($event) {
+            let variant = self.set.current.variants[keyNumber] || false;
+            if (variant) {
+              self.toggle(variant, self.answers);
+            }
+            $event.preventDefault();
+          },
+        });
+    }
+
     this.exists = function (item, list) {
       return list.indexOf(item) > -1 ||
         (!angular.isUndefined(this.disabled[this.set.current.id]) &&
@@ -292,7 +306,7 @@ class QuizController {
     }
 
     function getHintIFrame(url) {
-      return`<iframe frameborder="0" height="800" width="600" allowfullscreen sandbox"allow-forms allow-scripts" src="${url}"></iframe>`;
+      return `<iframe frameborder="0" height="800" width="600" allowfullscreen sandbox"allow-forms allow-scripts" src="${url}"></iframe>`;
     }
 
     $rootScope.$on('SHOWHINT', function (event, args) {

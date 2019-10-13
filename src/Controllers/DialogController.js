@@ -14,7 +14,8 @@ class DialogController {
     $scope.repos = loadAll();
     $scope.quiz = QuizFactory;
     $scope.pageNumber = 'quiz';
-    $scope.customUrl = QuizFactory.getConfig('QUIZCUSTOM');
+    $scope.customJson = QuizFactory.getConfig('QUIZCUSTOMJSON');
+    $scope.customUrl = QuizFactory.getConfig('QUIZCUSTOMURL');
     $scope.setLimit = QuizFactory.getConfig('SETLIMIT');
     $scope.debugMode = QuizFactory.getConfig('DEBUGMODE');
     $scope.theme = QuizFactory.getConfig('THEME') === 'light';
@@ -50,8 +51,16 @@ class DialogController {
       } else {
         QuizFactory.setConfig('QUIZ', null);
       }
-      if (QuizFactory.getConfig('QUIZCUSTOM') !== $scope.customUrl) {
-        QuizFactory.setConfig('QUIZCUSTOM', $scope.customUrl);
+      if (QuizFactory.getConfig('QUIZTYPE') !== $scope.selectedItem.type) {
+        QuizFactory.setConfig('QUIZTYPE', $scope.selectedItem.type);
+        reload = true;
+      }
+      if (QuizFactory.getConfig('QUIZCUSTOMJSON') !== $scope.customJson) {
+        QuizFactory.setConfig('QUIZCUSTOMJSON', $scope.customJson);
+        reload = true;
+      }
+      if (QuizFactory.getConfig('QUIZCUSTOMURL') !== $scope.customUrl) {
+        QuizFactory.setConfig('QUIZCUSTOMURL', $scope.customUrl);
         reload = true;
       }
       if (QuizFactory.getConfig('THEME') !== $scope.theme) {
@@ -111,16 +120,27 @@ class DialogController {
         {
           'name': 'Custom',
           'file': 'example.json',
+          'type': 'choice'
+        },
+        {
+          'name': 'Custom (URL)',
+          'file': null,
+          'type': 'url'
+        },
+        {
+          'name': 'Custom (Manual)',
+          'file': null,
+          'type': 'text'
         },
       ];
 
-      const file = QuizFactory.getConfig('QUIZ');
-
       return repos.map(function (repo) {
         repo.value = repo.name.toLowerCase();
-        if (repo.file === file) {
+
+        if (QuizFactory.getConfig('QUIZTYPE') === repo.type) {
           $scope.selectedItem = repo;
         }
+
         return repo;
       });
     }
