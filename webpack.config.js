@@ -73,10 +73,12 @@ module.exports = (env, argv) => {
       new MiniCssExtractPlugin({
         filename: '[name].css',
       }),
-      new CopyWebpackPlugin([
-        { from: 'node_modules/intro.js/minified/intro.min.js', to: path.resolve(__dirname, 'assets') },
-        { from: 'node_modules/angular-intro.js/build/angular-intro.min.js', to: path.resolve(__dirname, 'assets') }
-      ])
+      new CopyWebpackPlugin({
+         patterns: [
+          { from: 'node_modules/intro.js/minified/intro.min.js', to: path.resolve(__dirname, 'assets') },
+          { from: 'node_modules/angular-intro.js/build/angular-intro.min.js', to: path.resolve(__dirname, 'assets') }
+        ]
+      })
     ],
     optimization: {
       splitChunks: {

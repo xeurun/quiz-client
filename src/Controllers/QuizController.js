@@ -136,7 +136,7 @@ class QuizController {
       $mdDialog.show({
         template: ' <md-dialog aria-label="List dialog">' +
           '  <md-dialog-content>' +
-          '<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdGRg6zaPT9mi_Nnxrwnr8Zrd2h4olszWL9WmIquV-wuCawag/viewform?usp=pp_url&entry.1382005952=Info&entry.414927858=' + self.quiz.getConfig('QUIZCUSTOM') + ':' + id + '"></iframe>' +
+          '<iframe width="100%" height="100%" src="https://docs.google.com/forms/d/e/1FAIpQLSdGRg6zaPT9mi_Nnxrwnr8Zrd2h4olszWL9WmIquV-wuCawag/viewform?usp=pp_url&entry.1382005952=Info&entry.414927858=' + self.quiz.getConfig('QUIZCUSTOM') + ':' + id + '"></iframe>' +
           '  </md-dialog-content>' +
           '  <md-dialog-actions>' +
           '    <md-button ng-click="closeDialog()" class="md-primary">' +
@@ -306,7 +306,7 @@ class QuizController {
     }
 
     function getHintIFrame(url) {
-      return `<iframe frameborder="0" height="800" width="600" allowfullscreen sandbox"allow-forms allow-scripts" src="${url}"></iframe>`;
+      return `<iframe frameborder="0" height="auto" width="auto" allowfullscreen sandbox"allow-forms allow-scripts" src="${url}"></iframe>`;
     }
 
     $rootScope.$on('SHOWHINT', function (event, args) {

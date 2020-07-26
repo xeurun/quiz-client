@@ -72,7 +72,7 @@
         "php"
       ],
       "hint": "exception",
-      "hintUrl": "https://3v4l.org"
+      "hintUrl": "https://www.google.com/webhp?igu=1"
     },
     {
       "id": 3,
@@ -103,7 +103,7 @@
         "php"
       ],
       "hint": "todo",
-      "hintUrl": "https://3v4l.org"
+      "hintUrl": "https://www.google.com/webhp?igu=1"
     },
     {
       "id": 4,
@@ -124,7 +124,7 @@
         "php"
       ],
       "hint": "todo",
-      "hintUrl": "https://3v4l.org"
+      "hintUrl": "https://www.google.com/webhp?igu=1"
     },
     {
       "id": 5,
@@ -150,7 +150,7 @@
         "php"
       ],
       "hint": "todo",
-      "hintUrl": "https://3v4l.org"
+      "hintUrl": "https://www.google.com/webhp?igu=1"
     },
     {
       "id": 6,
@@ -186,7 +186,7 @@
         "php"
       ],
       "hint": "Invalid numeric literal",
-      "hintUrl": "https://3v4l.org"
+      "hintUrl": "https://www.google.com/webhp?igu=1"
     },
     {
       "id": 7,
@@ -217,7 +217,7 @@
         "php"
       ],
       "hint": "Warning:  Unsupported declare 'strict_type'",
-      "hintUrl": "https://3v4l.org"
+      "hintUrl": "https://www.google.com/webhp?igu=1"
     }
   ]
 }

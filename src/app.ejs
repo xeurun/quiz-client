@@ -77,6 +77,22 @@
         <span>[[ qc.quiz.getHeader("alert") ]]</span>
       </h2>
     </md-toolbar>
+    <section class="navigation" layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+      <md-button id="step-before" ng-disabled="qc.set.pos == 1" class="md-icon-button" id="step-prev"
+        aria-label="Before" ng-click="qc.before($event)">
+        <md-tooltip md-direction="left">Before question</md-tooltip>
+        <md-icon mb-font-set="md">navigate_before</md-icon>
+      </md-button>
+      <md-button id="step-submit" class="md-raised md-primary" ng-click="qc.submit()" ng-hide="qc.end">
+        <md-tooltip md-direction="top">[[ qc.submitted ? 'Next question' : 'Submit question answers' ]]</md-tooltip>
+        [[ qc.submitted ? qc.set.pos &lt; qc.set.questions.length ? 'Next' : 'Done' : 'Submit' ]]
+      </md-button>
+      <md-button id="step-next" ng-disabled="qc.set.questions.length <= qc.set.pos" class="md-icon-button"
+        id="step-next" aria-label="Next" ng-click="qc.next($event)">
+        <md-tooltip md-direction="right">Next question</md-tooltip>
+        <md-icon mb-font-set="md">navigate_next</md-icon>
+      </md-button>
+    </section>
     <div class="questions md-padding demo ng-cloak" ng-show="qc.set.questions.length > 0">
       <div layout="row" layout-wrap>
         <div flex="100" layout="column">
@@ -112,31 +128,15 @@
           </div>
         </div>
       </div>
-      <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
-        <md-button id="step-before" ng-disabled="qc.set.pos == 1" class="md-icon-button" id="step-prev"
-          aria-label="Before" ng-click="qc.before($event)">
-          <md-tooltip md-direction="left">Before question</md-tooltip>
-          <md-icon mb-font-set="md">navigate_before</md-icon>
-        </md-button>
-        <md-button id="step-submit" class="md-raised md-primary" ng-click="qc.submit()" ng-hide="qc.end">
-          <md-tooltip md-direction="top">[[ qc.submitted ? 'Next question' : 'Submit question answers' ]]</md-tooltip>
-          [[ qc.submitted ? qc.set.pos &lt; qc.set.questions.length ? 'Next' : 'Done' : 'Submit' ]]
-        </md-button>
-        <md-button id="step-next" ng-disabled="qc.set.questions.length <= qc.set.pos" class="md-icon-button"
-          id="step-next" aria-label="Next" ng-click="qc.next($event)">
-          <md-tooltip md-direction="right">Next question</md-tooltip>
-          <md-icon mb-font-set="md">navigate_next</md-icon>
-        </md-button>
-      </section>
-      <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
-        <div class="score-counters" id="step-counter">
-          <span class="text-green">[[ qc.correctCount ]]</span>/<span class="text-red">[[ qc.incorrectCount ]]</span>
-          <md-tooltip md-direction="bottom">Score, correct percent [[ qc.correctCount / qc.set.questions.length * 100 |
-            number : 0 ]]%
-          </md-tooltip>
-        </div>
-      </section>
     </div>
+    <section layout="row" layout-sm="column" layout-align="center center" layout-wrap>
+      <div class="score-counters" id="step-counter">
+        <span class="text-green">[[ qc.correctCount ]]</span> / <span class="text-red">[[ qc.incorrectCount ]]</span>
+        <md-tooltip md-direction="bottom">Score, correct percent [[ qc.correctCount / qc.set.questions.length * 100 |
+          number : 0 ]]%
+        </md-tooltip>
+      </div>
+    </section>
   </div>
   <script type="text/javascript" src="assets/intro.min.js"></script>
   <%= htmlWebpackPlugin.tags.bodyTags %>

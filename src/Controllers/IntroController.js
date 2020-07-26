@@ -52,17 +52,17 @@ class IntroController {
         },
         {
           element: '#step-before',
-          intro: 'Click this button for back to previous question',
+          intro: 'Click this button for back to previous question (or press left arrow)',
           position: 'top',
         },
         {
           element: '#step-submit',
-          intro: 'Click this button for submit answer',
+          intro: 'Click this button for submit answer (or press enter)',
           position: 'top',
         },
         {
           element: '#step-next',
-          intro: 'Click this button for back to next question',
+          intro: 'Click this button for back to next question (or press right arrow)',
           position: 'top',
         },
         {

@@ -13,7 +13,8 @@ require('angular-hotkeys');
 
 import './app.scss';
 
-const APP_VERSION = '1.2.0';
+// see package.json
+const APP_VERSION = '1.2.1';
 
 angular
   .module(

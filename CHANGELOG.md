@@ -19,6 +19,12 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 
 ### Security - in case of vulnerabilities
 
+## 1.2.1 - 2020-07-26
+
+- Changed
+  - Navigation move to top
+  - Update dependency
+
 ## 1.2.0 - 2019-10-14
 
 - Added
