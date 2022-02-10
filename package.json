@@ -28,7 +28,7 @@
     "mini-css-extract-plugin": "^0.8.2",
     "ng-annotate-loader": "^0.7.0",
     "ng-annotate-patched": "^1.12.0",
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.0",
     "raw-loader": "^0.5.1",
     "sass-loader": "^7.3.1",
     "style-loader": "^0.23.1",
